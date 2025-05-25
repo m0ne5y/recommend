@@ -1,0 +1,136 @@
+body { font-family: "Microsoft YaHei", Arial, sans-serif; background: #f6f6fa; margin: 0; padding: 0; }
+.header, .nav { display: flex; align-items: center; padding: 10px 20px; }
+.header { justify-content: space-between; background: #fff; border-bottom: 1px solid #eee; }
+.header-left { display: flex; align-items: center; }
+.logo { width: 40px; height: 40px; margin-right: 10px; }
+.header-center { flex: 1; display: flex; justify-content: center; }
+.header-center input { width: 220px; height: 30px; font-size: 14px; }
+.header-center button { margin-left: 8px; height: 32px; }
+.header-right button { margin-left: 8px; }
+
+.nav { background: #fff; border-bottom: 1px solid #eee; }
+.nav-links a { margin-right: 20px; color: #333; text-decoration: none; font-size: 16px; }
+
+.container { max-width: 1000px; margin: 30px auto; min-height: 500px; background: #fff; padding: 30px; border-radius: 10px; }
+
+.game-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: auto;
+  gap: 24px 24px;
+  justify-content: center;
+  align-content: start;
+  width: 580px;           /* 5*(80+24)=520+24=544，适当放宽 */
+  margin: 0 auto 24px auto;
+}
+
+.game-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+}
+
+.game-item img {
+  width: 96px !important;
+  height: 96px !important;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.game-name {
+  font-size: 13px;
+  color: #333;
+  margin-top: 2px;
+  text-align: center;
+  word-break: break-all;
+}
+/* 排行榜弹窗样式补充 */
+#ranking-modal .modal-content {
+  width: 420px;
+  max-width: 90vw;
+}
+#ranking-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+#ranking-list li {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  gap: 14px;
+}
+#ranking-list img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+#ranking-list .rank-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+#ranking-list .rank-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+#ranking-list .rank-detail {
+  font-size: 13px;
+  color: #888;
+}
+.rank-sort-btn {
+  flex: 1;
+  padding: 6px 0;
+  border-radius: 6px;
+  background: #eee;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.rank-sort-btn.active, .rank-sort-btn:hover {
+  background: #4CAF50;
+  color: #fff;
+}
+#ranking-pagination {
+  margin-top: 10px;
+  text-align: center;
+}
+#ranking-pagination button {
+  margin: 0 10px;
+}
+.game-image {
+  width: 64px !important;
+  height: 64px !important;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-right: 18px;
+}
+/* 保留原来的其他样式 */
+.pagination { text-align: center; margin: 30px 0; }
+.pagination button { margin: 0 8px; }
+
+.modal { display: block; position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; z-index: 1002; overflow: auto; }
+.modal.hidden { display: none; }
+.mask { position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.3); z-index: 1001; }
+.mask.hidden { display: none; }
+.modal-content { background: #fff; margin: 80px auto; padding: 30px 32px 24px 32px; border-radius: 10px; width: 370px; box-shadow: 0 6px 32px rgba(0,0,0,0.12); position: relative; }
+#auth-modal-content h2 { text-align: center; margin-bottom: 18px; }
+#auth-modal-content form { display: flex; flex-direction: column; gap: 18px; }
+#auth-modal-content input { height: 34px; font-size: 15px; padding: 0 10px; border: 1px solid #ddd; border-radius: 6px; }
+#auth-modal-content button { height: 36px; border: none; border-radius: 6px; background: #4CAF50; color: #fff; font-size: 16px; cursor: pointer; }
+#auth-modal-content button:disabled { background: #90ee90; }
+#auth-modal-content .switch-link { color: #409EFF; cursor: pointer; margin-left: 4px; }
+#auth-modal-content .form-footer { text-align: right; font-size: 13px; }
+#auth-modal-content .error-msg { color: #f44336; font-size: 13px; text-align: center; }
+
+.toast { position: fixed; top: 60px; left: 50%; transform: translateX(-50%); background: #333; color: #fff; padding: 10px 30px; border-radius: 24px; font-size: 15px; z-index: 2000; opacity: 0.96; }
+.toast.success { background: #43a047; }
+.toast.error { background: #e53935; }
+.toast.hidden { display: none; }
